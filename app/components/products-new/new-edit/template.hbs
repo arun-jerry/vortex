@@ -1,5 +1,5 @@
 <div class="product-header">
-    <p class="product-header-text"><a href="/products" class="all-products-route">All Products</a>&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;Freshdesk</p>
+    <p class="product-header-text"><a href="/products" class="all-products-route">All Products</a> {{svg-jar "rigth-arrow" class="element-inline app-icon-arrow"}} <span>Freshdesk</span></p>
 </div>
 <div class="container">
   <div class="table-heading">
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="main-wrapper">
-    <div class="mb-20 mt-20">
+    {{!-- <div class="mb-20 mt-20">
       <div class="type-dropdown mb-30">
         {{#basic-dropdown id="launch-type" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
           {{#dd.trigger}}
@@ -31,52 +31,33 @@
           {{/dd.content}}
         {{/basic-dropdown}}
       </div>
-    </div>
+    </div> --}}
 
     <div class="mb-40">
-      <p class="label-name">Feature key</p>
-      {{input class="value-name pa-10 border border-radius pointer" value="" placeholder="Eg: 'request_demo'"}}
+      <p class="label-name mb-0">Feature key for</p>
+      <span class="value-name">Segment</span>
+      <div class="mt-20">
+        {{input class="value-name pa-10 border border-radius pointer text--medium" value="" placeholder="Eg: 'request_demo'"}}
+      </div>
     </div>
 
     {{#if showSegments}}
       <span class="label-name">New rules for</span><br>
       <span class="value-name">Customer Segment</span>
-      <p>Customers who match:</p>
-      <div class="border border-radius pa-40 segment-container">
-        <p>Based on sign up</p>
-        <div class="element-inline">
-          {{#basic-dropdown id="segments" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
-            {{#dd.trigger}}
-              <div class="pa-16 pr-40" data-test-id="label">{{selectedSegmentType}}</div>
-            {{/dd.trigger}}
-            {{#dd.content}}
-            {{#if segmentOptions}}
-              <ul class="values-list pa-16 border border-radius">
-              {{#each segmentOptions as |option|}}
-                <li data-test-id="display-list-name" onclick={{action (mut selectedSegmentType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
-              {{/each}}
-              </ul>
-            {{/if}}
-            {{/dd.content}}
-          {{/basic-dropdown}}
+      <p class="mt-20">Customers who match:</p>
+      {{#each conditions as |condition|}}
+        <div class="border border-radius pa-40 segment-container">
+          <div class="element-inline">
+            {{component condition.componentName}}
+          </div>
+          <div class="element-inline">
+            {{component condition.selectedPair.componentName}}
+          </div>
         </div>
-        <div class="element-inline">
-          {{#basic-dropdown id="signup-options" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
-            {{#dd.trigger}}
-              <div class="pa-16 pr-40" data-test-id="label">{{selectedSignupType}}</div>
-            {{/dd.trigger}}
-            {{#dd.content}}
-            {{#if signupoptions}}
-              <ul class="values-list pa-16 border border-radius">
-              {{#each signupoptions as |option|}}
-                <li data-test-id="display-list-name" onclick={{action (mut selectedSignupType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
-              {{/each}}
-              </ul>
-            {{/if}}
-            {{/dd.content}}
-          {{/basic-dropdown}}
-        </div>
-      </div>
+      {{/each}}
+      <button onclick={{action 'addDefaultConditon'}}>
+        Add condition
+      </button>
     {{/if}}
   </div>
   

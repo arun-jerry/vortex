@@ -657,7 +657,7 @@ $toggle-btn-shadow: rgba(0, 0, 0, 0.23);
 
 $dotWidth: 5px;
 $dotHeight: 5px;
-$dotRadius: $dotWidth/2;
+
 
 $dotColor: $muted-secondary;
 $dotBgColor: $dotColor;
@@ -665,8 +665,6 @@ $dotBeforeColor: $dotColor;
 $dotAfterColor: $dotColor;
 
 $input-height: 32px;
-
-$dotSpacing: $dotWidth + $dotWidth/2;
 
 $grey-color: $app-icon-color;
 

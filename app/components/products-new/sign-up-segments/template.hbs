@@ -1,0 +1,14 @@
+{{#basic-dropdown class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
+  {{#dd.trigger}}
+    <div class="pa-16 pr-40" data-test-id="label">{{selectedSignupType}}</div>
+  {{/dd.trigger}}
+  {{#dd.content}}
+  {{#if signupoptions}}
+    <ul class="values-list pa-16 border border-radius">
+    {{#each signupoptions as |option|}}
+      <li data-test-id="display-list-name" onclick={{action (mut selectedSignupType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
+    {{/each}}
+    </ul>
+  {{/if}}
+  {{/dd.content}}
+{{/basic-dropdown}}

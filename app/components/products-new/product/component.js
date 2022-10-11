@@ -12,6 +12,10 @@ export const launchList = [
     route: '/products/1/edit',
     interactions: '2.5k',
     userImpact: '89%',
+    featureKey: '', 
+    config: {
+
+    }
   },
   {
     id: 2,
@@ -29,6 +33,7 @@ export const launchList = [
     userImpact: '10%',
   },
   {
+
     id: 4,
     label: 'Trial Nudges',
     route: '/products/4/edit',
@@ -41,6 +46,10 @@ export const launchList = [
     route: '/products/5/edit',
     interactions: '2.5k',
     userImpact: '40%',
+    featurekey: '',
+    config: {
+
+    }
   },
 ];
 

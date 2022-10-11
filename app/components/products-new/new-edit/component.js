@@ -19,12 +19,20 @@ const segmentOptions = [
     value: '<b>Sign-up</b> using'
   },
   {
-    name: 'business',
-    value: 'Business Sign-ups'
+    name: 'account-state',
+    value: '<b>Account</b> in <b>state</b>'
   },
   {
-    name: 'nonbusiness',
-    value: 'Non-Business Sign-ups'
+    name: 'region',
+    value: 'in <b>Region</b>'
+  },
+  {
+    name: 'mrr',
+    value: '<b>MRR</b> between'
+  },
+  {
+    name: 'plan',
+    value: 'in <b>Plan</b>'
   }
 ];
 
@@ -43,16 +51,38 @@ const signupoptions = [
   }
 ]
 
+const conditions = [
+  {
+    name: 'select-segment-base',
+    options: '',
+    componentName: 'products-new/select-segment-base',
+    selectedPair: {
+      componentName: 'products-new/sign-up-segments',
+      options: '',
+      name: 'sign-up-segment',
+    }
+  }
+]
+
 
 // eslint-disable-next-line ember/no-classic-classes, ember/require-tagless-components
 export default Component.extend({
   optionsList,
   selectedLaunchType: 'select launch type',
   showSegments: computed('selectedLaunchType', function() {
-    return this.selectedLaunchType === 'Launch for segments';
+    // return this.selectedLaunchType === 'Launch for segments';
+    return true;
   }),
   selectedSignupType: 'All',
   selectedSegmentType: 'Select segemnt',
   signupoptions,
-  segmentOptions
+  segmentOptions,
+  conditions,
+  actions: {
+    addDefaultConditon() {
+      let conditions = this.conditions;
+      conditions.pushObject(conditions[0]);
+      set(this, 'conditions', conditions);
+    }
+  }
 });

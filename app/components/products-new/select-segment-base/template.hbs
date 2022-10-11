@@ -1,0 +1,14 @@
+{{#basic-dropdown  class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
+  {{#dd.trigger}}
+    <div class="pa-16 pr-40" data-test-id="label">{{html-safe selectedSegmentType}}</div>
+  {{/dd.trigger}}
+  {{#dd.content}}
+  {{#if segmentOptions}}
+    <ul class="values-list pa-16 border border-radius">
+    {{#each segmentOptions as |option|}}
+      <li data-test-id="display-list-name" onclick={{action (mut selectedSegmentType) option.value}} class="value-names pa-6 mt-2">{{html-safe option.value}}</li>
+    {{/each}}
+    </ul>
+  {{/if}}
+  {{/dd.content}}
+{{/basic-dropdown}}
