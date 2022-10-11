@@ -1,0 +1,160 @@
+.main-wrapper {
+  padding: 30px;
+}
+
+.element-inline {
+  display: inline-block;
+}
+
+
+.ma {
+  @for $i from 0 through 20 {
+    &-#{$i} {
+      margin: #{($i * 1)}px;
+    }
+  }
+
+  &--auto {
+    margin: auto;
+  }
+}
+
+.ml {
+  @for $i from 0 through 20 {
+    &-#{$i} {
+      margin-left: #{($i * 1)}px;
+    }
+  }
+
+  &--auto {
+    margin-left: auto;
+  }
+}
+
+.mr {
+  @for $i from 0 through 20 {
+    &-#{$i} {
+      margin-right: #{($i * 1)}px;
+    }
+  }
+
+  &--auto {
+    margin-right: auto;
+  }
+}
+
+.pa {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      padding: #{($i * 1)}px;
+    }
+  }
+}
+
+.pl {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      padding-left: #{($i * 1)}px;
+    }
+  }
+}
+
+.pr {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      padding-right: #{($i * 1)}px;
+    }
+  }
+}
+
+.pt {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      padding-top: #{($i * 1)}px;
+    }
+  }
+}
+
+.px {
+  @for $i from 0 through 5 {
+    &-#{($i * 4)} {
+      padding-left: #{($i * 4)}px;
+      padding-right: #{($i * 4)}px;
+    }
+  }
+}
+
+.py {
+  @for $i from 0 through 5 {
+    &-#{($i * 4)} {
+      padding-top: #{($i * 4)}px;
+      padding-bottom: #{($i * 4)}px;
+    }
+  }
+}
+
+.mt {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      margin-top: #{($i * 1)}px;
+    }
+  }
+}
+
+.pb {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      padding-bottom: #{($i * 1)}px;
+    }
+  }
+}
+
+.mb {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      margin-bottom: #{($i * 1)}px;
+    }
+  }
+}
+
+// top, bottom, right and left values for positions
+.top {
+  @for $i from 0 through 60 {
+    &-#{$i} {
+      top: #{($i * 1)}px;
+    }
+  }
+}
+
+.bottom {
+  @for $i from 0 through 20 {
+    &-#{$i} {
+      bottom: #{($i * 1)}px;
+    }
+  }
+}
+
+.right {
+  @for $i from 0 through 10 {
+    &-#{$i} {
+      right: #{($i * 1)}px;
+    }
+  }
+}
+
+.left {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      left: #{($i * 1)}px;
+    }
+  }
+}
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.segment-container {
+  width: 50%;
+}

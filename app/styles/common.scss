@@ -1,0 +1,21 @@
+@import "ember-power-select/themes/bootstrap";
+$ember-basic-dropdown-content-background-color: #fff !default;
+$ember-basic-dropdown-content-z-index: 1000 !default;
+$ember-basic-dropdown-overlay-background: rgba(0, 0, 0, 0.5) !default;
+$ember-basic-dropdown-overlay-pointer-events: none !default;
+
+
+.border {
+  border: 1px solid #B1C1CE;
+}
+.border-radius {
+  border-radius: 8px;
+}
+
+.ember-basic-dropdown-trigger {
+  background: url("down-arrow-small.png") no-repeat 91%/10px 6px;
+}
+
+.ember-basic-dropdown, .values-list {
+  min-width: 220px;
+}

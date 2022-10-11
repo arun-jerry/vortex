@@ -2,19 +2,82 @@
     <p class="product-header-text"><a href="/products" class="all-products-route">All Products</a>&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;Freshdesk</p>
 </div>
 <div class="container">
-    <div class="table-heading">
-        <p class="table-heading-text">Nudge trial customers to use more filters and convert them to paid</p>
-        <div class="table-header-right">
-            <div class="cancel-box">
-                <span>Cancel</span>
-            </div>
-            <div class="save-box">
-                <span class="save-text">Save Config</span>
-            </div>
+  <div class="table-heading">
+    <p class="table-heading-text">Nudge trial customers to use more filters and convert them to paid</p>
+    <div class="table-header-right">
+      <div class="cancel-box">
+        <span>Cancel</span>
+      </div>
+      <div class="save-box">
+        <span class="save-text">Save Config</span>
+      </div>
+    </div>
+  </div>
+  <div class="main-wrapper">
+    <div class="mb-20 mt-20">
+      <div class="type-dropdown mb-30">
+        {{#basic-dropdown id="launch-type" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
+          {{#dd.trigger}}
+            <div class="pa-16 pr-40" data-test-id="label">{{selectedLaunchType}}</div>
+          {{/dd.trigger}}
+          {{#dd.content}}
+          {{#if optionsList}}
+            <ul class="values-list pa-16 border border-radius">
+            {{#each optionsList as |option|}}
+              <li data-test-id="display-list-name" onclick={{action (mut selectedLaunchType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
+            {{/each}}
+            </ul>
+          {{/if}}
+          {{/dd.content}}
+        {{/basic-dropdown}}
+      </div>
+    </div>
+
+    <div class="mb-40">
+      <p class="label-name">Feature key</p>
+      {{input class="value-name pa-10 border border-radius pointer" value="" placeholder="Eg: 'request_demo'"}}
+    </div>
+
+    {{#if showSegments}}
+      <span class="label-name">New rules for</span><br>
+      <span class="value-name">Customer Segment</span>
+      <p>Customers who match:</p>
+      <div class="border border-radius pa-40 segment-container">
+        <p>Based on sign up</p>
+        <div class="element-inline">
+          {{#basic-dropdown id="segments" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
+            {{#dd.trigger}}
+              <div class="pa-16 pr-40" data-test-id="label">{{selectedSegmentType}}</div>
+            {{/dd.trigger}}
+            {{#dd.content}}
+            {{#if segmentOptions}}
+              <ul class="values-list pa-16 border border-radius">
+              {{#each segmentOptions as |option|}}
+                <li data-test-id="display-list-name" onclick={{action (mut selectedSegmentType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
+              {{/each}}
+              </ul>
+            {{/if}}
+            {{/dd.content}}
+          {{/basic-dropdown}}
         </div>
-    </div>
-    <div>
-        <span class="label-name">New rules for</span><br>
-        <span class="value-name">Customer Segment</span>
-    </div>
+        <div class="element-inline">
+          {{#basic-dropdown id="signup-options" class="element-inline border border-radius pointer" verticalPosition="auto" horizontalPosition="auto-right" renderInPlace=true as |dd|}}
+            {{#dd.trigger}}
+              <div class="pa-16 pr-40" data-test-id="label">{{selectedSignupType}}</div>
+            {{/dd.trigger}}
+            {{#dd.content}}
+            {{#if signupoptions}}
+              <ul class="values-list pa-16 border border-radius">
+              {{#each signupoptions as |option|}}
+                <li data-test-id="display-list-name" onclick={{action (mut selectedSignupType) option.value}} class="value-names pa-6 mt-2">{{option.value}}</li>
+              {{/each}}
+              </ul>
+            {{/if}}
+            {{/dd.content}}
+          {{/basic-dropdown}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+  
 </div>

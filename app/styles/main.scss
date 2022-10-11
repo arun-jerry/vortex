@@ -3,6 +3,12 @@ body {
   font-family: 'SF Pro Text';
 }
 
+ul, li {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
 .all-products-route {
   background-color: transparent;
   color: #2c5cc5;
@@ -236,8 +242,6 @@ font-size: 14px;
   font-weight: 500;
   font-size: 16px;
   color: #475867;
-  margin-left: 30px;
-  padding-top: 30px;
 }
 
 .value-name {
@@ -245,6 +249,4 @@ font-size: 14px;
   font-weight: 500;
   font-size: 20px;
   color: #191c1f;
-  margin-left: 30px;
-  padding-top: 30px;
 }
