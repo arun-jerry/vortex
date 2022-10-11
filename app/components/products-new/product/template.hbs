@@ -1,0 +1,36 @@
+<div class="product-header">
+    <p class="product-header-text"><a href="/products" class="all-products-route">All Products</a>&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;Freshdesk</p>
+</div>
+<div class="container">
+    <div class="table-heading">
+        <p class="table-heading-text">Launches</p>
+        <div class="table-header-right">
+            <div class="filter-box">
+                {{svg-jar "filter" class="filter-svg"}}Filter
+            </div>
+            <div class="search-box">
+                {{svg-jar "search" class=" search-svg"}} Search Launch
+            </div>
+        </div>
+    </div>
+
+    <table class="products-table">
+        <thead class="table-head">
+            <tr>
+                {{#each columns as |column|}}
+                    <th>{{column}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+
+        <tbody class="table-body">
+          {{#each launches as |launch|}}
+            <tr>
+                <td class="table-body-name"><a href={{launch.route}} class="product-name">{{launch.label}}</a></td>
+                <td class="table-bold">{{launch.interactions}}</td>
+                <td class="table-bold">{{launch.userImpact}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+    </table>
+</div>
